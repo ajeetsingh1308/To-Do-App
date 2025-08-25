@@ -1,9 +1,10 @@
 // server/server.js
-const express = require('express');
-const dotenv = require('dotenv');
-const cors = require('cors');
-const connectDB = require('./config/db'); // Imports the function
-const todoRoutes = require('./routes/todos');
+const userRoutes = require("./routes/users");
+const express = require("express");
+const dotenv = require("dotenv");
+const cors = require("cors");
+const connectDB = require("./config/db"); // Imports the function
+const todoRoutes = require("./routes/todos");
 
 // Initial setup
 dotenv.config();
@@ -17,12 +18,9 @@ app.use(cors());
 app.use(express.json());
 
 // API Routes
-app.use('/api/todos', todoRoutes);
+app.use("/api/todos", todoRoutes);
+app.use("/api/users", userRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}: http://localhost:3000 `);
 });
-
-
-
-

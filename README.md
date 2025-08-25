@@ -86,3 +86,119 @@ All API endpoints are documented in the API contract. Please refer to the [API_C
 ## 📜 License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+
+
+
+# MERN Stack To-Do App ✅
+
+A simple yet powerful to-do list application built with the MERN stack (MongoDB, Express, React, Node.js). This project allows users to manage their daily tasks through a clean and intuitive user interface, backed by a robust RESTful API.
+
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+
+---
+## ✨ Features
+
+* **Create, Read, Update, and Delete (CRUD)** tasks.
+* Mark tasks as complete or incomplete with a single click.
+* Clean, modern, and responsive user interface.
+* Built on a scalable and organized layered backend architecture.
+
+---
+## 🛠️ Tech Stack
+
+| Frontend | Backend |
+| :--- | :--- |
+| React | Node.js |
+| Vite | Express |
+| Axios | MongoDB Atlas |
+| Tailwind CSS | Mongoose |
+| | Dotenv |
+
+
+
+---
+## 📚 API Endpoints
+
+The backend provides the following RESTful API endpoints:
+
+| HTTP Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `GET` | `/api/todos` | Retrieve a list of all to-do items. |
+| `GET` | `/api/todos/:id` | Retrieve a single to-do item by its ID. |
+| `POST` | `/api/todos` | Add a new to-do item to the list. |
+| `PUT` | `/api/todos/:id` | Update an existing item (e.g., mark as complete). |
+| `DELETE` | `/api/todos/:id`| Remove a to-do item from the list. |
+
+---
+## 🚀 Getting Started
+
+Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
+
+### Prerequisites
+
+* Node.js (v18 or later)
+* npm
+* Git
+
+### Installation
+
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/ajeetsingh1308/To-Do-App.git](https://github.com/ajeetsingh1308/To-Do-App.git)
+    cd To-Do-App
+    ```
+
+2.  **Setup the Backend:**
+    ```bash
+    # Navigate to the server directory
+    cd server
+
+    # Install dependencies
+    npm install
+
+    # Create a .env file in the /server directory
+    touch .env
+    ```
+    Add your MongoDB connection string to the `.env` file:
+    ```
+    MONGO_URI=your_mongodb_connection_string
+    ```
+
+    # Start the backend server
+    npm run dev
+    ```
+    The server will be running on `http://localhost:3000`.
+
+3.  **Setup the Frontend:**
+    ```bash
+    # Navigate to the client directory from the root
+    cd client
+
+    # Install dependencies
+    npm install
+
+    # Start the frontend development server
+    npm run dev
+    ```
+    The React application will be running on a different port (e.g., `http://localhost:5173`).
+
+---
+## 📂 Project Structure
+
+The project is organized into two main folders, `client` and `server`, with a layered architecture on the backend.
+
+To-Do-App/
+├── client/         # React Frontend
+└── server/         # Node.js/Express Backend
+├── config/
+├── controllers/
+├── models/
+├── routes/
+├── services/
+└── server.js   # Main server entry point
+
+---
+## 📄 License
+
+This project is distributed under the MIT License. See `LICENSE` for more information.
