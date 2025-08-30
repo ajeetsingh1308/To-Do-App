@@ -1,10 +1,11 @@
 // server/controllers/todoController.js
+
 const todoService = require('../services/todoService');
 
 const getAllTodos = async (req, res) => {
   try {
-    // Pass the logged-in user's ID to the service
-    const todos = await todoService.findAllTodos(req.user._id);
+    // Pass the user's ID and the entire query object to the service
+    const todos = await todoService.findAllTodos(req.user._id, req.query);
     res.json(todos);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -31,7 +32,8 @@ const createTodo = async (req, res) => {
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
-};
+}; 
+
 
 const updateTodo = async (req, res) => {
   try {
@@ -63,4 +65,11 @@ module.exports = {
   createTodo,
   updateTodo,
   deleteTodo,
+  getAllTodos,
 };
+
+
+
+
+
+

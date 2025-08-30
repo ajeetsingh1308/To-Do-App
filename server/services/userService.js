@@ -39,7 +39,38 @@ const loginUser = async (loginData) => {
   }
 };
 
+const findUserById = (id) => {
+  // Find a user by their ID, excluding the password field from the result
+  return User.findById(id).select('-password');
+};
+
+const updateUserProfile = (id, updateData) => {
+  // Find a user by ID and update their details
+  return User.findByIdAndUpdate(id, { name: updateData.name }, { new: true }).select('-password');
+};
+
+const updateUserPassword = async (id, oldPassword, newPassword) => {
+  const user = await User.findById(id);
+
+  // 1. Verify the old password is correct
+  if (user && (await bcrypt.compare(oldPassword, user.password))) {
+    // 2. Hash the new password
+    const salt = await bcrypt.genSalt(10);
+    user.password = await bcrypt.hash(newPassword, salt);
+
+    // 3. Save the user with the new password
+    await user.save();
+    return true; // Indicate success
+  } else {
+    throw new Error('Invalid old password');
+  }
+};
+
 module.exports = {
   registerUser,
   loginUser, // Export the new function
+  findUserById,       // Export new functions
+  updateUserProfile,
+  updateUserPassword,
 };
+
